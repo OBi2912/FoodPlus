@@ -1,0 +1,94 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(8px);
+}
+
+.modal {
+    width: 500px;
+    max-width: 90vw;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header button {
+    font-size: 30px;
+    color: var(--foreground);
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+}
+
+.field textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.cancel {
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: var(--foreground);
+}
+
+.imageUploadWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.previewThumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+}
+
+.imageUploadWrapper input[type="file"] {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 13px;
+    cursor: pointer;
+}

@@ -1,0 +1,89 @@
+.adminMain {
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.adminHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.tableWrapper {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.table td {
+    padding: 20px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.productInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.productThumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.smallDesc {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.actionBtns {
+    display: flex;
+    gap: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.editBtn {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.editBtn:hover {
+    background: var(--primary);
+    color: #000;
+}
+
+.deleteBtn {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.deleteBtn:hover {
+    background: var(--accent);
+    color: #fff;
+}
