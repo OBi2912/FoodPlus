@@ -21,6 +21,8 @@
     flex-direction: column;
     padding: 30px;
     animation: slideIn 0.3s ease-out;
+    background: var(--background);
+    border-left: 1px solid var(--glass-border);
 }
 
 @keyframes slideIn {

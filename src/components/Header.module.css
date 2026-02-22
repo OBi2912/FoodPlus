@@ -8,6 +8,9 @@
     display: flex;
     align-items: center;
     transition: all 0.3s ease;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .nav {
@@ -157,6 +160,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: var(--background);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .mobileMenuOpen {
@@ -175,6 +180,7 @@
     font-size: 24px;
     font-weight: 600;
     color: var(--foreground);
+    opacity: 0.9;
 }
 
 .overlay {

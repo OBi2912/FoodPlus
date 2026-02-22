@@ -6,11 +6,8 @@ import styles from './Header.module.css';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
-import { useTheme } from '@/context/ThemeContext';
-
 export default function Header() {
     const { totalItems, setIsCartOpen } = useCart();
-    const { theme, toggleTheme } = useTheme();
     const { t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
