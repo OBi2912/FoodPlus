@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "@/components/Header";
 import { PRODUCTS as initialProducts, Product } from "@/lib/data";
 import styles from "./admin.module.css";
@@ -13,7 +13,16 @@ export default function AdminPage() {
     const { products, addProduct, updateProduct, deleteProduct } = useProducts();
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
     const [isAdding, setIsAdding] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
     const { t, language } = useLanguage();
+
+    const filteredProducts = products.filter(product => {
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        const nameMatches = (language === 'es' ? product.name_es : product.name).toLowerCase().includes(lowerCaseSearchTerm);
+        const descriptionMatches = (language === 'es' ? product.description_es : product.description).toLowerCase().includes(lowerCaseSearchTerm);
+        const categoryMatches = product.category.toLowerCase().includes(lowerCaseSearchTerm);
+        return nameMatches || descriptionMatches || categoryMatches;
+    });
 
     const handleEdit = (product: Product) => {
         setEditingProduct(product);
@@ -57,7 +66,16 @@ export default function AdminPage() {
             <div className="container" style={{ paddingTop: '120px' }}>
                 <div className={styles.adminHeader}>
                     <h1>{t.admin.title} <span>{t.admin.titleAccent}</span></h1>
-                    <button className="btn-primary" onClick={handleAdd}>{t.admin.add}</button>
+                    <div className={styles.adminActions}>
+                        <input
+                            type="text"
+                            placeholder={t.admin.searchPlaceholder}
+                            className={styles.searchInput}
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button className="btn-primary" onClick={handleAdd}>{t.admin.add}</button>
+                    </div>
                 </div>
 
                 <div className={`${styles.tableWrapper} glass`}>
@@ -71,7 +89,7 @@ export default function AdminPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            {products.map(product => (
+                            {filteredProducts.map(product => (
                                 <tr key={product.id}>
                                     <td>
                                         <div className={styles.productInfo}>

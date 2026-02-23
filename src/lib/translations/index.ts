@@ -24,7 +24,8 @@ export const translations = {
                 italian: "Italian Classics",
                 healthy: "Healthy Bowls",
                 desserts: "Desserts",
-            }
+            },
+            searchPlaceholder: "Search for dishes...",
         },
         cart: {
             title: "Your Selection",
@@ -62,6 +63,7 @@ export const translations = {
             delete: "Delete",
             save: "Save Changes",
             cancel: "Cancel",
+            searchPlaceholder: "Search products...",
         },
         footer: {
             description: "Redefining luxury dining through exceptional flavors and seamless delivery.",
@@ -113,7 +115,8 @@ export const translations = {
                 italian: "Clásicos Italianos",
                 healthy: "Bowls Saludables",
                 desserts: "Postres",
-            }
+            },
+            searchPlaceholder: "Buscar platos...",
         },
         cart: {
             title: "Su Selección",
@@ -151,6 +154,7 @@ export const translations = {
             delete: "Eliminar",
             save: "Guardar Cambios",
             cancel: "Cancelar",
+            searchPlaceholder: "Buscar productos...",
         },
         footer: {
             description: "Redefiniendo la cena de lujo a través de sabores excepcionales y una entrega impecable.",

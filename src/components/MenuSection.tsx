@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CATEGORIES } from '@/lib/data';
 import ProductCard from './ProductCard';
 import styles from './MenuSection.module.css';
@@ -10,6 +10,7 @@ import { useProducts } from '@/context/ProductContext';
 export default function MenuSection() {
     const { products } = useProducts();
     const [activeCategory, setActiveCategory] = useState('All');
+    const [searchTerm, setSearchTerm] = useState('');
     const { t } = useLanguage();
 
     const categoryMap: { [key: string]: string } = {
@@ -21,15 +22,25 @@ export default function MenuSection() {
         "Desserts": t.menu.categories.desserts,
     };
 
-    const filteredProducts = activeCategory === 'All'
-        ? products
-        : products.filter(p => p.category === activeCategory);
+    const filteredProducts = products.filter(product => {
+        const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
+        const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                  product.description.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesCategory && matchesSearchTerm;
+    });
 
     return (
         <section id="menu" className={styles.menu}>
             <div className="container">
                 <div className={styles.header}>
                     <h2 className={styles.title}>{t.menu.title} <span>{t.menu.titleAccent}</span></h2>
+                    <input
+                        type="text"
+                        placeholder={t.menu.searchPlaceholder}
+                        className={styles.searchInput}
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                     <div className={styles.categories}>
                         {CATEGORIES.map(cat => (
                             <button

@@ -17,6 +17,30 @@
     color: var(--primary);
 }
 
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--foreground);
+    font-size: 16px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.searchInput::placeholder {
+    color: var(--foreground);
+    opacity: 0.7;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--secondary);
+}
+
 .categories {
     display: flex;
     gap: 12px;
